@@ -11,7 +11,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | 3. Plan y sesión | Mostrar la rutina semanal y marcar ejercicios realizados. | Explicar cómo se muestran los datos y se calcula el progreso. | Completada |
 | 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Completada según la revisión de la estudiante |
 | 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Completada según la revisión de la estudiante |
-| 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Pendiente |
+| 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Ajustes y guía listos. Pendiente de grabación y cierre |
 | 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | Pendiente |
 
 En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos una explicación o un pequeño cambio. Las bonificaciones van después de los requisitos obligatorios.
@@ -73,6 +73,16 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Ajuste de cálculo.** Se corrigieron dos casos de precisión y se añadieron pruebas. Con 64 kg y 1,60 m se muestra **IMC 25,0 · Sobrepeso**. Un aumento de 0,05 kg se muestra como **+0,1 kg** al presentar un decimal.
 - **Para sustentar.** Explicar por qué se valida el texto antes de aplicar `Number()` y por qué se busca el mes calendario anterior en vez de usar la segunda fila del historial.
 - **Revisión de la estudiante.** Informó que realizó las pruebas solicitadas y pasaron satisfactoriamente. La IA volvió a ejecutar las 28 pruebas, TypeScript y lint sin errores.
+
+### 24 de noviembre de 2026 — Adaptación y preparación de la entrega
+
+- **Qué hizo la IA.** Habilitó la rotación, centralizó la paleta y adaptó el catálogo a dos o tres columnas según el ancho. Ajustó las etiquetas y el tamaño de los controles. En web, corrigió los enlaces que perdían los estilos de sus tarjetas.
+- **Qué se comprobó.** Pasaron 28 pruebas, TypeScript y lint. Expo exportó para iOS, Android y web. En web se verificaron dos columnas a 390 y 600 puntos y tres a 601 y 844. Se comprobó el tamaño de los controles, la búsqueda, la ficha de ejercicio, el progreso del lunes, el perfil y el registro de medidas.
+- **Documentación.** El README incluye a la integrante, los requisitos, los temas T1–T7 y la reflexión sobre el uso de IA. La [hoja de verificación](docs/VERIFICACION.md) reúne las pruebas, el guion y la lista de entrega.
+- **Pendiente.** Medir el cambio de pestañas en un teléfono de gama media. A partir de la grabación de la estudiante se obtendrán el video y las cuatro capturas. Falta el enlace de Drive y etiquetar en GitHub la versión final revisada.
+- **Revisión en Android.** La estudiante indicó que la orientación horizontal se ve bien. En Perfil no pudo desplazarse hasta Guardar con el teclado abierto; al cerrarlo sí pudo guardar. La IA ajustó el área desplazable, la barra de pestañas y la edición a pantalla completa de Android. La estudiante repitió la prueba e informó que funcionó.
+- **Encabezado de Inicio.** A petición de la estudiante, la IA cambió el título superior a «Gym Track», centrado y destacado. La pestaña conserva el nombre «Inicio».
+- **Confirmación posterior.** La estudiante confirmó que la app funciona en Expo Go con SDK 57 y que el teclado y la orientación horizontal funcionan en Perfil y Medidas.
 
 ### Para cada avance
 

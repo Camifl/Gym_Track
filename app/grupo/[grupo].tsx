@@ -2,6 +2,7 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
 import { CatalogExerciseLink } from '@/components/CatalogExerciseLink';
 import { CatalogRouteError } from '@/components/CatalogRouteError';
 import { exercises } from '@/data/ejercicios';
@@ -31,7 +32,7 @@ export default function GroupScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F5F7F9' },
+  container: { flex: 1, backgroundColor: colors.background },
   list: { padding: 16, gap: 8 },
-  message: { color: '#334651', fontSize: 16 },
+  message: { color: colors.secondaryText, fontSize: 16 },
 });

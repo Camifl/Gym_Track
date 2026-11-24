@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { ScrollView, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
 import { DayCard } from '@/components/DayCard';
 import { plan } from '@/data/plan';
 import { getTodayWeekday } from '@/utils/training';
@@ -31,7 +32,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F5F7F9',
+    backgroundColor: colors.background,
   },
   content: {
     padding: 16,
@@ -40,10 +41,10 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#14232D',
+    color: colors.text,
   },
   rest: {
     fontSize: 16,
-    color: '#334651',
+    color: colors.secondaryText,
   },
 });

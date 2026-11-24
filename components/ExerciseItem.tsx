@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '@/constants/colores';
 import type { Exercise } from '@/types/gym';
 
 type ExerciseItemProps = {
@@ -41,9 +42,9 @@ const styles = StyleSheet.create({
     gap: 8,
     paddingHorizontal: 10,
     borderWidth: 1,
-    borderColor: '#D8E1E7',
+    borderColor: colors.border,
     borderRadius: 10,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
   },
   toggle: {
     flex: 1,
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     opacity: 0.65,
   },
   name: {
-    color: '#14232D',
+    color: colors.text,
     fontSize: 16,
     fontWeight: '600',
   },
@@ -71,11 +72,11 @@ const styles = StyleSheet.create({
     textDecorationLine: 'line-through',
   },
   info: {
-    color: '#334651',
+    color: colors.secondaryText,
     fontSize: 14,
   },
   detailsLabel: {
-    color: '#174D70',
+    color: colors.link,
     fontSize: 14,
     fontWeight: '600',
   },

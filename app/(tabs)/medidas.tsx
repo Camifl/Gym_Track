@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Keyboard, StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '@/constants/colores';
 import { FormField } from '@/components/FormField';
 import { FormScreen, FormSection, FormSubmit } from '@/components/FormScreen';
 import { useGym } from '@/context/GymContext';
@@ -114,10 +115,10 @@ export default function MeasurementsScreen() {
 }
 
 const styles = StyleSheet.create({
-  metric: { fontSize: 26, fontWeight: '700', color: '#184C62' },
-  body: { fontSize: 16, color: '#334651' },
-  month: { fontSize: 16, fontWeight: '700', color: '#14232D' },
-  entry: { borderTopWidth: 1, borderColor: '#D8E1E7', paddingTop: 12, gap: 6 },
+  metric: { fontSize: 26, fontWeight: '700', color: colors.primary },
+  body: { fontSize: 16, color: colors.secondaryText },
+  month: { fontSize: 16, fontWeight: '700', color: colors.text },
+  entry: { borderTopWidth: 1, borderColor: colors.border, paddingTop: 12, gap: 6 },
   circumferences: { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
-  circumference: { flexBasis: '47%', flexGrow: 1, fontSize: 14, color: '#334651' },
+  circumference: { flexBasis: '47%', flexGrow: 1, fontSize: 14, color: colors.secondaryText },
 });

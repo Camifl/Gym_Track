@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '@/constants/colores';
 import { getProgressPercentage } from '@/utils/training';
 
 type ProgressBarProps = {
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   label: {
-    color: '#14232D',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '600',
   },
@@ -39,10 +40,10 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     overflow: 'hidden',
-    backgroundColor: '#D8E1E7',
+    backgroundColor: colors.border,
   },
   fill: {
     height: '100%',
-    backgroundColor: '#174D70',
+    backgroundColor: colors.link,
   },
 });

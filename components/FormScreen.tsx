@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
+
 export function FormScreen({ children }: { children: ReactNode }) {
   const headerHeight = useHeaderHeight();
 
@@ -11,10 +13,14 @@ export function FormScreen({ children }: { children: ReactNode }) {
       <KeyboardAvoidingView
         style={styles.keyboardArea}
         enabled={Platform.OS !== 'web'}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior="padding"
         keyboardVerticalOffset={headerHeight}
       >
-        <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+        <ScrollView
+          style={styles.scroll}
+          contentContainerStyle={styles.content}
+          keyboardShouldPersistTaps="handled"
+        >
           {children}
         </ScrollView>
       </KeyboardAvoidingView>
@@ -58,30 +64,32 @@ export function FormSubmit({ label, onPress, hasErrors, message }: FormSubmitPro
 }
 
 const styles = StyleSheet.create({
-  screen: { flex: 1, backgroundColor: '#F5F7F9' },
+  screen: { flex: 1, backgroundColor: colors.background },
   keyboardArea: { flex: 1 },
+  scroll: { flex: 1 },
   content: { width: '100%', maxWidth: 680, alignSelf: 'center', padding: 16, gap: 16 },
   section: {
     padding: 16,
     gap: 12,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: '#D8E1E7',
-    backgroundColor: '#FFFFFF',
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
   },
-  heading: { fontSize: 20, fontWeight: '700', color: '#14232D' },
+  heading: { fontSize: 20, fontWeight: '700', color: colors.text },
   actions: { gap: 8 },
   button: {
+    minWidth: 44,
     minHeight: 48,
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 10,
-    backgroundColor: '#184C62',
+    backgroundColor: colors.primary,
   },
   pressed: { opacity: 0.8 },
-  buttonText: { fontSize: 16, fontWeight: '700', color: '#FFFFFF' },
-  error: { fontSize: 14, color: '#A42121' },
-  success: { fontSize: 14, color: '#176144' },
+  buttonText: { fontSize: 16, fontWeight: '700', color: colors.surface },
+  error: { fontSize: 14, color: colors.error },
+  success: { fontSize: 14, color: colors.success },
 });

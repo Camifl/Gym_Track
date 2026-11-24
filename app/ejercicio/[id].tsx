@@ -2,6 +2,7 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
 import { CatalogRouteError } from '@/components/CatalogRouteError';
 import { exercises } from '@/data/ejercicios';
 import { exerciseImages } from '@/data/exerciseImages';
@@ -62,19 +63,19 @@ export default function ExerciseScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F5F7F9' },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: 16, gap: 16 },
   summary: { gap: 8 },
-  heading: { fontSize: 18, fontWeight: '700', color: '#14232D' },
-  text: { fontSize: 16, color: '#334651' },
-  sets: { fontSize: 16, fontWeight: '600', color: '#14232D' },
+  heading: { fontSize: 18, fontWeight: '700', color: colors.text },
+  text: { fontSize: 16, color: colors.secondaryText },
+  sets: { fontSize: 16, fontWeight: '600', color: colors.text },
   media: {
     width: '100%',
     height: 176,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#D8E1E7',
-    backgroundColor: '#FFFFFF',
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
   },
   placeholder: { alignItems: 'center', justifyContent: 'center', padding: 12 },
   days: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
@@ -83,8 +84,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderLeftWidth: 4,
     borderRadius: 6,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.surface,
     fontSize: 15,
-    color: '#14232D',
+    color: colors.text,
   },
 });

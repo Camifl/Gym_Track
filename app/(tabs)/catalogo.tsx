@@ -1,17 +1,21 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, useWindowDimensions, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
 import { CatalogExerciseLink } from '@/components/CatalogExerciseLink';
 import { exercises } from '@/data/ejercicios';
 import { muscleGroupLabels, muscleGroups } from '@/data/labels';
 import { filterExercisesByName } from '@/utils/texto';
 
 export default function CatalogScreen() {
+  const { width } = useWindowDimensions();
   const [query, setQuery] = useState('');
   const isSearching = query.trim().length > 0;
   const matches = isSearching ? filterExercisesByName(exercises, query) : [];
+  // El ancho se actualiza al girar el teléfono. Hasta 600 puntos se mantienen dos columnas.
+  const cellStyle = width > 600 ? styles.thirdCell : styles.halfCell;
 
   return (
     <SafeAreaView style={styles.container} edges={['left', 'right']}>
@@ -21,7 +25,7 @@ export default function CatalogScreen() {
           <TextInput
             accessibilityLabel="Buscar ejercicio"
             placeholder="Nombre del ejercicio"
-            placeholderTextColor="#526574"
+            placeholderTextColor={colors.placeholder}
             value={query}
             onChangeText={setQuery}
             autoCorrect={false}
@@ -43,9 +47,9 @@ export default function CatalogScreen() {
             <Text accessibilityRole="header" style={styles.heading}>Grupos musculares</Text>
             <View style={styles.grid}>
               {muscleGroups.map((group) => (
-                <View key={group} style={styles.cell}>
+                <View key={group} style={[styles.cell, cellStyle]}>
                   <Link href={{ pathname: '/grupo/[grupo]', params: { grupo: group } }} asChild>
-                    <Pressable style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
+                    <Pressable style={styles.card}>
                       <Text style={styles.cardLabel}>{muscleGroupLabels[group]}</Text>
                     </Pressable>
                   </Link>
@@ -60,36 +64,39 @@ export default function CatalogScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#F5F7F9' },
+  container: { flex: 1, backgroundColor: colors.background },
   content: { padding: 16, gap: 16 },
   search: { gap: 6 },
-  label: { color: '#14232D', fontSize: 16, fontWeight: '600' },
+  label: { color: colors.text, fontSize: 16, fontWeight: '600' },
   input: {
+    minWidth: 44,
     minHeight: 48,
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderWidth: 1,
-    borderColor: '#8799A7',
+    borderColor: colors.inputBorder,
     borderRadius: 10,
-    backgroundColor: '#FFFFFF',
-    color: '#14232D',
+    backgroundColor: colors.surface,
+    color: colors.text,
     fontSize: 16,
   },
   results: { gap: 8 },
-  heading: { color: '#14232D', fontSize: 18, fontWeight: '700' },
+  heading: { color: colors.text, fontSize: 18, fontWeight: '700' },
   grid: { flexDirection: 'row', flexWrap: 'wrap', marginHorizontal: -4 },
-  cell: { width: '50%', padding: 4 },
+  cell: { padding: 4 },
+  halfCell: { width: '50%' },
+  thirdCell: { width: '33.3333%' },
   card: {
+    minWidth: 44,
     minHeight: 56,
     justifyContent: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#D8E1E7',
-    backgroundColor: '#FFFFFF',
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
   },
-  pressed: { opacity: 0.75 },
-  cardLabel: { color: '#14232D', fontSize: 16, fontWeight: '600' },
-  message: { color: '#334651', fontSize: 16 },
+  cardLabel: { color: colors.text, fontSize: 16, fontWeight: '600' },
+  message: { color: colors.secondaryText, fontSize: 16 },
 });

@@ -1,52 +1,71 @@
 # GymTrack
 
-Aplicación móvil de entrenamiento hecha con Expo Router y TypeScript. Permite consultar el plan semanal, marcar el progreso de una sesión, explorar el catálogo de ejercicios, editar el perfil y registrar medidas mensuales.
+**Integrante:** Camila Mena
+
+GymTrack digitaliza la ficha de entrenamiento de un gimnasio. Desde la app puedes consultar el plan semanal, marcar ejercicios, explorar el catálogo y registrar tu perfil y medidas.
 
 ## Ejecutar la app
 
-El laboratorio usa Node 24 y Expo SDK 57. Desde la carpeta del proyecto:
+Requisitos: **Node.js 24 LTS** y **Expo Go compatible con SDK 57**.
 
 ```bash
+git clone https://github.com/Camifl/Gym_Track.git
+cd Gym_Track
 nvm use
 npm ci
 npx expo start
 ```
 
-Si aún no tienes Node 24, ejecuta `nvm install` para instalar la versión indicada en `.nvmrc`. Abre el código QR con Expo Go compatible con SDK 57. Para usar el navegador, pulsa `w` en la terminal de Expo.
+Si falta Node 24, usa `nvm install`. Escanea el QR desde Expo Go en Android. Pulsa `w` en la terminal para abrir la versión web.
 
-## Comprobaciones
+## Requisitos
 
-```bash
-npm test
-npx tsc --noEmit
-npx expo lint
-```
+| ID | Requisito | Estado |
+| --- | --- | --- |
+| RF01 | Plan de seis días con el día actual destacado | Cumplido |
+| RF02 | Detalle diario con calentamientos y ejercicios agrupados | Cumplido |
+| RF03 | Catálogo de 11 grupos musculares | Cumplido |
+| RF04 | Búsqueda por nombre sin distinguir mayúsculas ni tildes | Cumplido |
+| RF05 | Ficha de ejercicio con imagen, series, repeticiones y días asignados | Cumplido |
+| RF06 | Registro de ejercicios y progreso por día | Cumplido |
+| RF07 | Edición y validación del perfil | Cumplido |
+| RF08 | Medidas mensuales con historial, IMC y cambio de peso | Cumplido |
+| RNF01 | TypeScript en modo estricto | Cumplido |
+| RNF02 | Apertura en Expo Go SDK 57 | Cumplido · Confirmado por la estudiante en Android |
+| RNF03 | Áreas seguras, texto de 14 puntos y controles de 44 × 44 | Cumplido · Tamaños revisados en web; rotación y teclado comprobados por la estudiante en Android |
+| RNF04 | Estructura del proyecto y pantallas de hasta 200 líneas | Cumplido |
+| RNF05 | Historial con al menos ocho commits descriptivos | Cumplido |
+| RNF06 | Cambios de pestaña en un segundo o menos en un teléfono de gama media | Parcial · Falta medir en un teléfono |
+| RF09 | Bonificación · Avisos por lesión | No |
+| RF10 | Bonificación · Temporizador de descanso | No |
+| RF11 | Bonificación · Persistencia al cerrar la app | No |
 
-Para revisar el catálogo:
+El perfil, el historial y el progreso se guardan en memoria durante el uso de la app.
 
-1. Abre **Catálogo**. Deben aparecer 11 grupos musculares en dos columnas. En **Pecho** deben aparecer Press banca plano, Vuelos, Crossover y Peck deck.
-2. Busca `extension` y luego `  EXTENSIÓN  `. Ambas consultas deben mostrar cuatro resultados, incluido **Hiperextensiones**. Abre su ficha y vuelve. La consulta y sus resultados deben seguir visibles. Una consulta sin coincidencias muestra un mensaje y al borrar el texto vuelven los grupos.
-3. Abre **Press banca plano** desde Pecho y desde **Inicio → Lunes → Ver ficha**. Debe mostrar la ilustración del press, **4 × 12**, **Lunes** y **Viernes**. **Crossover** debe mostrar su propia imagen y **Sin días asignados**.
-4. En la vista web de Expo, abre `/grupo/inventado` y `/ejercicio/pec-99`. Cada pantalla debe mostrar el error correspondiente y ofrecer volver con **Ir al catálogo**.
+## Capturas y verificación
 
-Para comprobar el progreso, abre **Inicio → Lunes** y marca tres ejercicios. Debe mostrar **3 de 7 completados · 43 %**.
+Las capturas de **Inicio**, **Catálogo**, **Perfil** y **Medidas** se tomarán de la grabación en Android.
 
-### Perfil y medidas en Expo Go
-
-1. En **Perfil**, borra el nombre, escribe `13` en la edad y pulsa **Guardar perfil**. Deben aparecer dos errores bajo sus campos. Escribe un nombre y una edad válida. Guarda, confirma la alerta y vuelve desde otra pestaña para comprobar los cambios.
-2. En **Medidas**, con los datos iniciales, verifica **IMC 32,0**, **Obesidad grado I** y **−2,5 kg** frente a `2026-10`.
-3. Llena el formulario con mes `2026-11`, estatura `1,75` y peso `96,5`. Usa estos perímetros en orden: hombro `118`, brazo `33`, antebrazo `28`, pecho `108`, abdomen `101`, cadera `106`, pierna `58` y pantorrilla `38`. Pulsa **Guardar medidas** con el teclado abierto. Debe aparecer el error de mes duplicado y conservarse los valores.
-4. Cambia solo el mes a `2026-12` y guarda. El formulario debe quedar vacío y diciembre aparecer primero en el historial, con **IMC 31,5** y **−1,5 kg** frente a noviembre en el resumen. Cambia de pestaña y vuelve para comprobar que el registro sigue ahí.
-5. Para verificar un salto, registra `2027-02` con los mismos valores sin guardar enero. El resumen debe mostrar **Sin registro del mes anterior**.
-
-Los cambios de perfil y medidas se guardan en memoria durante el uso de la app. Al reiniciarla se cargan los datos iniciales.
+Consulta los ejemplos de prueba, el guion del video y la lista de entrega en la [hoja de verificación](docs/VERIFICACION.md).
 
 ## Bitácora de investigación
 
-| Tema | Fuentes | Qué aprendimos y dónde se aplicó |
+| Tema | Fuente | Aplicación en GymTrack |
 | --- | --- | --- |
-| T4 · Formularios controlados | [TextInput](https://reactnative.dev/docs/0.86/textinput), [manejo del teclado en Expo](https://docs.expo.dev/guides/keyboard-handling/), [Alert](https://reactnative.dev/docs/0.86/alert) | `value` y `onChangeText` sincronizan la entrada con un borrador local. Al guardar se valida el texto antes de llamar a `Number()` para que un campo vacío se distinga de cero. [FormField](components/FormField.tsx) muestra los errores bajo cada campo y [FormScreen](components/FormScreen.tsx) comparte el manejo del teclado. |
-| T6 · Arreglos y tipos | [Estrechamiento en TypeScript](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), [normalización de texto](https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.normalize) | La búsqueda normaliza la consulta y cada nombre antes de usar `includes` en [utils/texto.ts](utils/texto.ts). En [utils/catalog.ts](utils/catalog.ts) se valida el parámetro de ruta antes de buscar y se filtra el plan por el ID del ejercicio para obtener sus días. |
-| T7 · Imágenes locales | [Imágenes en React Native](https://reactnative.dev/docs/0.86/images) | Metro necesita conocer la ruta literal de un `require` para incluir el archivo local. [El mapa de imágenes](data/exerciseImages.ts) conecta los JPEG de [la carpeta de ejercicios](assets/images/ejercicios/) con el ID que recibe la ficha. |
+| T1 · Context | [React: useContext](https://react.dev/reference/react/useContext) | El [proveedor](context/GymContext.tsx) comparte el perfil, las medidas y el progreso. `useGym` comprueba que tiene un proveedor para detectar usos fuera de él. |
+| T2 · Pestañas y rutas | [Expo Router](https://docs.expo.dev/versions/v57.0.0/sdk/router/) | El [layout de pestañas](app/%28tabs%29/_layout.tsx) organiza las cuatro secciones. En el [detalle de día](app/dia/%5Bdia%5D.tsx), `useLocalSearchParams` lee el parámetro que luego se valida contra el plan. |
+| T3 · Efectos y limpieza | [React: useEffect](https://react.dev/reference/react/useEffect) | La limpieza de un efecto cancela recursos como un intervalo al salir. [Inicio](app/%28tabs%29/index.tsx) actualiza el día al volver a la pestaña con `useFocusEffect`. La limpieza de intervalos se investigó para la bonificación del temporizador. |
+| T4 · Formularios | [React Native: TextInput](https://reactnative.dev/docs/0.86/textinput) | [FormField](components/FormField.tsx) muestra el error de cada entrada. En [Perfil](utils/profile.ts) se valida el texto antes de convertirlo porque `Number('')` devuelve cero. |
+| T5 · Diseño adaptable | [React Native: useWindowDimensions](https://reactnative.dev/docs/0.86/usewindowdimensions) | El [catálogo](app/%28tabs%29/catalogo.tsx) reorganiza sus tarjetas con `flexWrap` al cambiar el ancho. Usa tres columnas por encima de 600 puntos. |
+| T6 · Arreglos y tipos | [TypeScript: estrechamiento de tipos](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) | [Catálogo](utils/catalog.ts) filtra el plan por ID para encontrar los días asignados. La [búsqueda](utils/texto.ts) normaliza el texto antes de comparar los nombres. |
+| T7 · Imágenes locales | [React Native: imágenes](https://reactnative.dev/docs/0.86/images) | El [mapa de imágenes](data/exerciseImages.ts) une cada ejercicio con un archivo local. Las rutas literales de `require` permiten a Metro incluir las imágenes al empaquetar la app. |
 
-El [registro de avances](BITACORA_GYMTRACK.md) y el [registro de prompts](PROMPTS_IA_GYMTRACK.md) documentan el aporte de IA y las verificaciones de cada etapa.
+El [registro de avances](BITACORA_GYMTRACK.md) y el [registro de prompts](PROMPTS_IA_GYMTRACK.md) detallan la revisión y el apoyo de IA.
+
+## Reflexión técnica
+
+Se centralizaron el perfil, las medidas y el progreso en `GymContext` porque se usan en varias pantallas. Así, al volver a una pestaña se muestran los cambios de la sesión sin tener que pasar los datos por cada ruta.
+
+Una dificultad fue aceptar medidas que se escriben con coma decimal. El formulario comprueba el formato del texto, reemplaza la coma por un punto para convertir el valor y luego verifica que esté en el rango permitido. Así acepta `1,75` y `1.75` y muestra un error para una entrada vacía o fuera de rango.
+
+Se usó Codex de OpenAI para apoyar la planificación, la implementación, las pruebas y la documentación. Las ilustraciones de los ejercicios se generaron con IA. La bitácora distingue las comprobaciones automáticas y en navegador de las pruebas realizadas por la estudiante en Expo Go.

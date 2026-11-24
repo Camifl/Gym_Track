@@ -146,6 +146,14 @@ Para los demás ejercicios se usó el siguiente texto, seguido de la descripció
 
 **Resultado.** La estudiante eligió comparar con el mes calendario anterior y pidió ejecutar el plan aprobado. Codex implementó Perfil y Medidas, añadió 13 pruebas y verificó el recorrido en el navegador. La guía de prueba y la investigación T4 quedaron en el README.
 
+## 24 de noviembre de 2026 — Adaptación y entrega
+
+**Herramienta:** Codex de OpenAI.
+
+> Continuemos con la etapa 6, crea un plan para actualizar la documentacion de forma que sea clara, corta y entendible, debe ser en español, ademas verifica si puedes hacer un video de recorrido del app y lo que sea necesario para completar esta ultima etapa, hazme las preguntas que consideres necesarias e investiga lo que necesites, no cometas errores.
+
+**Resultado.** La estudiante confirmó el nombre, el teléfono Android y Google Drive. Al ejecutar el plan, Codex ajustó el diseño, comprobó la versión web y preparó el README y el guion. La grabación en Android queda pendiente.
+
 ## Próximos registros
 
 Agregar una entrada solo si el prompt produjo una decisión o cambio relevante. Incluir fecha y etapa, el prompt, la herramienta/modelo y un resultado breve. No copiar consultas sencillas ni preguntas de aprendizaje.

@@ -2,6 +2,7 @@ import { Link, router, Stack, useLocalSearchParams } from 'expo-router';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { colors } from '@/constants/colores';
 import { ExerciseItem } from '@/components/ExerciseItem';
 import { ProgressBar } from '@/components/ProgressBar';
 import { useGym } from '@/context/GymContext';
@@ -79,14 +80,14 @@ export default function DayScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F5F7F9',
+    backgroundColor: colors.background,
   },
   content: {
     padding: 16,
     gap: 16,
   },
   heading: {
-    color: '#14232D',
+    color: colors.text,
     fontSize: 22,
     fontWeight: '700',
   },
@@ -94,12 +95,12 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   sectionTitle: {
-    color: '#14232D',
+    color: colors.text,
     fontSize: 17,
     fontWeight: '700',
   },
   text: {
-    color: '#334651',
+    color: colors.secondaryText,
     fontSize: 15,
   },
   homeLink: {
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   homeLabel: {
-    color: '#174D70',
+    color: colors.link,
     fontSize: 15,
     fontWeight: '600',
   },
