@@ -11,3 +11,5 @@ export const muscleGroupLabels: Record<MuscleGroup, string> = {
   hombro: 'Hombro', biceps: 'Bíceps', abdomen: 'Abdomen', cadera: 'Cadera',
   gluteo: 'Glúteo', lumbar: 'Lumbar', antebrazo: 'Antebrazo',
 };
+
+export const muscleGroups = Object.keys(muscleGroupLabels) as readonly MuscleGroup[];

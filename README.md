@@ -1,56 +1,41 @@
-# Welcome to your Expo app 👋
+# GymTrack
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicación móvil de entrenamiento hecha con Expo Router y TypeScript. Permite consultar el plan semanal, marcar el progreso de una sesión y explorar el catálogo de ejercicios.
 
-## Get started
+## Ejecutar la app
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+El laboratorio usa Node 24 y Expo SDK 57. Desde la carpeta del proyecto:
 
 ```bash
-npm run reset-project
+nvm use
+npm ci
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Si aún no tienes Node 24, ejecuta `nvm install` para instalar la versión indicada en `.nvmrc`. Abre el código QR con Expo Go compatible con SDK 57. Para usar el navegador, pulsa `w` en la terminal de Expo.
 
-### Other setup steps
+## Comprobaciones
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+```bash
+npm test
+npx tsc --noEmit
+npx expo lint
+```
 
-## Learn more
+Para revisar el catálogo:
 
-To learn more about developing your project with Expo, look at the following resources:
+1. Abre **Catálogo**. Deben aparecer 11 grupos musculares en dos columnas. En **Pecho** deben aparecer Press banca plano, Vuelos, Crossover y Peck deck.
+2. Busca `extension` y luego `  EXTENSIÓN  `. Ambas consultas deben mostrar cuatro resultados, incluido **Hiperextensiones**. Abre su ficha y vuelve. La consulta y sus resultados deben seguir visibles. Una consulta sin coincidencias muestra un mensaje y al borrar el texto vuelven los grupos.
+3. Abre **Press banca plano** desde Pecho y desde **Inicio → Lunes → Ver ficha**. Debe mostrar la ilustración del press, **4 × 12**, **Lunes** y **Viernes**. **Crossover** debe mostrar su propia imagen y **Sin días asignados**.
+4. En la vista web de Expo, abre `/grupo/inventado` y `/ejercicio/pec-99`. Cada pantalla debe mostrar el error correspondiente y ofrecer volver con **Ir al catálogo**.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Para comprobar el progreso, abre **Inicio → Lunes** y marca tres ejercicios. Debe mostrar **3 de 7 completados · 43 %**.
 
-## Join the community
+## Bitácora de investigación
 
-Join our community of developers creating universal apps.
+| Tema | Fuentes | Qué aprendimos y dónde se aplicó |
+| --- | --- | --- |
+| T6 · Arreglos y tipos | [Estrechamiento en TypeScript](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), [normalización de texto](https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.normalize) | La búsqueda normaliza la consulta y cada nombre antes de usar `includes` en [utils/texto.ts](utils/texto.ts). En [utils/catalog.ts](utils/catalog.ts) se valida el parámetro de ruta antes de buscar y se filtra el plan por el ID del ejercicio para obtener sus días. |
+| T7 · Imágenes locales | [Imágenes en React Native](https://reactnative.dev/docs/0.86/images) | Metro necesita conocer la ruta literal de un `require` para incluir el archivo local. [El mapa de imágenes](data/exerciseImages.ts) conecta los JPEG de [la carpeta de ejercicios](assets/images/ejercicios/) con el ID que recibe la ficha. |
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+El [registro de avances](BITACORA_GYMTRACK.md) y el [registro de prompts](PROMPTS_IA_GYMTRACK.md) documentan el aporte de IA y las verificaciones de cada etapa.

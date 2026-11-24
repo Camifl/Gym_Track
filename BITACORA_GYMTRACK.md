@@ -9,7 +9,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | 1. Entorno | Preparar Node 24, instalar dependencias y abrir la app en Expo Go. | Explicar la configuración y ayudar a resolver errores. | Completada por indicación de la estudiante |
 | 2. Navegación | Crear las cuatro pestañas y las pantallas de detalle. | Explicar cómo se conectan las pantallas y practicar la navegación. | Completada |
 | 3. Plan y sesión | Mostrar la rutina semanal y marcar ejercicios realizados. | Explicar cómo se muestran los datos y se calcula el progreso. | Completada |
-| 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Pendiente |
+| 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Completada según la revisión de la estudiante |
 | 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Pendiente |
 | 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Pendiente |
 | 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | Pendiente |
@@ -57,6 +57,14 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Fuentes consultadas:** [guía de navegación de Expo Router](https://docs.expo.dev/router/basics/navigation/), [áreas seguras de Expo SDK 57](https://docs.expo.dev/versions/v57.0.0/sdk/safe-area-context/) y [configuración de ESLint](https://docs.expo.dev/guides/using-eslint/).
 - **Revisión de la estudiante:** confirmó el recorrido principal en Expo Go, ejecutó las pruebas con éxito y comprobó que un día inválido muestra la pantalla de error.
 - **Ajuste de pruebas:** la IA reprodujo el error de carga de TypeScript con Node 22.16.0 y activó la opción de Node que permite importar archivos `.ts`. Después pasaron las ocho pruebas con Node 22.16.0 y 24.16.0. El proyecto indica Node 24 en `.nvmrc`, que se activa con `nvm use`.
+
+### 24 de noviembre de 2026 — Catálogo y fichas
+
+- **Qué hizo la IA:** implementó la cuadrícula de 11 grupos, la búsqueda por nombre y las fichas de ejercicio (RF03, RF04 y RF05). Los días asignados se calculan desde el plan. La ficha muestra un marcador cuando falta la imagen.
+- **Pruebas de la IA:** 15 pruebas automáticas en Node 24, TypeScript y lint sin errores. Expo exportó iOS, Android y web. En el navegador se verificaron las dos columnas, las cuatro coincidencias de `extension`, la consulta al regresar, las fichas con y sin días y su apertura desde una sesión. También se comprobaron ambas rutas inválidas y el regreso a Catálogo.
+- **Para sustentar:** explicar por qué `extension` coincide con Hiperextensiones y cómo se buscan los días por ID. El README contiene el recorrido de prueba y las fuentes de T6 y T7.
+- **Revisión de la estudiante:** informó que realizó la revisión y que todo pasó correctamente.
+- **Ilustraciones:** la IA generó 37 JPEG y los conectó por ID. Se comprobaron las 37 imágenes en el navegador abriendo cada ficha desde su grupo. Pasaron las 15 pruebas, TypeScript y lint. Expo exportó iOS, Android y web con las imágenes incluidas.
 
 ### Para cada avance
 
