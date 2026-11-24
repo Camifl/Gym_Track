@@ -58,6 +58,20 @@ Aquí guardaremos solo los prompts que hayan influido de forma importante en el 
 
 **Resultado:** la IA identificó la prueba pendiente de `router.push` y explicó cómo realizarla. La estudiante informó que funcionó; la IA comprobó TypeScript.
 
+## 24 de noviembre de 2026 — Plan semanal y sesión diaria
+
+**Herramienta:** Codex de OpenAI. **Modelo de implementación:** GPT-6.2 Sol.
+
+> Para la etapa 3 quiero que la desarrolles tu solo bajo mi supervision, crea un plan y quiero que uses la guia del laboratorio para que la desarrolles correctamente, como se espera, agrega las validaciones y pruebas necesarias para verificar que todo funcione correctamente, ademas de comentarios en español para entender lo realizado, no cometas errores y si tienes alguna pregunta antes de continuar hazmelo saber, se cuidadoso e investiga lo que consideres necesario. Cuando finalices, explicame los cambios que realizaste, porque lo hiciste y como puedo probarlos para validar que todo este correcto.
+
+**Resultado:** la IA preparó el plan de RF01, RF02 y RF06. La estudiante pidió ejecutarlo en un segundo mensaje. Codex implementó las pantallas y la lógica, escribió las pruebas y verificó el recorrido en el navegador.
+
+### Diagnóstico de las pruebas
+
+> Hice el recorrido que sugieres y funciono correctamente, no he probado el de un dia invalido porque no se como, ademas corri los tests y me sale que fallaron, ayudame revisando eso para poder continuar
+
+**Resultado:** la estudiante confirmó el recorrido principal en Expo Go. Codex reprodujo el error al cargar TypeScript con Node 22.16.0, ajustó el comando y comprobó que las ocho pruebas pasan con Node 22.16.0 y 24.16.0. La estudiante volvió a ejecutar las pruebas con éxito y confirmó que la ruta inválida muestra la pantalla de error.
+
 ## Próximos registros
 
 Agregar una entrada solo si el prompt produjo una decisión o cambio relevante. Incluir fecha y etapa, el prompt, la herramienta/modelo y un resultado breve. No copiar consultas sencillas ni preguntas de aprendizaje.

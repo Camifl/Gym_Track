@@ -8,7 +8,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | --- | --- | --- | --- |
 | 1. Entorno | Preparar Node 24, instalar dependencias y abrir la app en Expo Go. | Explicar la configuración y ayudar a resolver errores. | Completada por indicación de la estudiante |
 | 2. Navegación | Crear las cuatro pestañas y las pantallas de detalle. | Explicar cómo se conectan las pantallas y practicar la navegación. | Completada |
-| 3. Plan y sesión | Mostrar la rutina semanal y marcar ejercicios realizados. | Explicar cómo se muestran los datos y se calcula el progreso. | Pendiente |
+| 3. Plan y sesión | Mostrar la rutina semanal y marcar ejercicios realizados. | Explicar cómo se muestran los datos y se calcula el progreso. | Completada |
 | 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Pendiente |
 | 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Pendiente |
 | 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Pendiente |
@@ -43,10 +43,20 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Validación del día:** la estudiante probó un día válido y uno inválido; se muestra el enfoque o una pantalla de error con enlace a Inicio. La IA revisó el código y TypeScript terminó sin errores.
 - **Validación de grupo y ejercicio:** la estudiante informó que probó casos válidos e inválidos. La IA revisó las búsquedas y TypeScript terminó sin errores.
 - **Pestañas:** la estudiante agregó iconos, corrigió los nombres de archivos y comunicó que la navegación funciona. La IA revisó la configuración y TypeScript terminó sin errores.
-- **Cierre:** la estudiante informó que probó `router.push` correctamente. La IA revisó el código y TypeScript terminó sin errores. Lint queda pendiente para la revisión general.
+- **Cierre:** la estudiante informó que probó `router.push` correctamente. La IA revisó el código y TypeScript terminó sin errores. Lint se configuró en la etapa 3.
 - **Para sustentar:** explicar cómo `Tabs` agrupa las pantallas, cómo `Link` y `router.push` navegan, cómo se reciben y validan parámetros y cómo se configura el título con `Stack.Screen`.
 - **Fuentes:** [navegación con Expo Router](https://docs.expo.dev/router/basics/navigation/), [rutas dinámicas](https://docs.expo.dev/router/basics/notation/) y [pestañas](https://docs.expo.dev/router/advanced/tabs/).
-- **Siguiente etapa:** el plan y la sesión siguen pendientes. El botón de prueba de `router.push` permanece en Inicio y puede retirarse al empezar esa etapa.
+- **Al cierre de esta etapa** aún estaba en Inicio el botón de prueba de `router.push`.
+
+### 24 de noviembre de 2026 — Plan y sesión
+
+- **Qué hizo la IA:** implementó el plan semanal y el detalle diario (RF01, RF02 y RF06). Las marcas se guardan por día en `GymContext` mientras la app está abierta. Se añadieron comentarios en español para explicar las reglas.
+- **Pruebas de la IA:** ocho pruebas con Node 24, TypeScript y lint sin errores. Expo exportó los paquetes para iOS, Android y web.
+- **Prueba en el navegador:** se abrieron los seis días, se verificaron los bloques de tiempo, el cardio y el enlace a la ficha. El lunes pasó de 43 % a 29 % al desmarcar un ejercicio. El viernes siguió en 0 % y el lunes conservó sus marcas al regresar. Una ruta de día inválida mostró el enlace a Inicio.
+- **Para sustentar:** explicar cómo el identificador del plan se busca en el catálogo, cómo se agrupan los ejercicios y por qué el progreso se calcula con los visibles. Probar `npm test` bajo Node 24.
+- **Fuentes consultadas:** [guía de navegación de Expo Router](https://docs.expo.dev/router/basics/navigation/), [áreas seguras de Expo SDK 57](https://docs.expo.dev/versions/v57.0.0/sdk/safe-area-context/) y [configuración de ESLint](https://docs.expo.dev/guides/using-eslint/).
+- **Revisión de la estudiante:** confirmó el recorrido principal en Expo Go, ejecutó las pruebas con éxito y comprobó que un día inválido muestra la pantalla de error.
+- **Ajuste de pruebas:** la IA reprodujo el error de carga de TypeScript con Node 22.16.0 y activó la opción de Node que permite importar archivos `.ts`. Después pasaron las ocho pruebas con Node 22.16.0 y 24.16.0. El proyecto indica Node 24 en `.nvmrc`, que se activa con `nvm use`.
 
 ### Para cada avance
 
