@@ -1,5 +1,12 @@
-import { Stack } from "expo-router";
+import { Stack } from 'expo-router';
+import { GymProvider } from '@/context/GymContext';
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <GymProvider>
+      <Stack>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      </Stack>
+    </GymProvider>
+  );
 }
