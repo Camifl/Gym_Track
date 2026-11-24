@@ -4,6 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '@/constants/colores';
 import { CatalogRouteError } from '@/components/CatalogRouteError';
+import { InjuryWarning } from '@/components/InjuryWarning';
+import { useGym } from '@/context/GymContext';
 import { exercises } from '@/data/ejercicios';
 import { exerciseImages } from '@/data/exerciseImages';
 import { muscleGroupLabels, weekdayLabels } from '@/data/labels';
@@ -12,6 +14,7 @@ import { findCatalogExercise, getAssignedDays } from '@/utils/catalog';
 
 export default function ExerciseScreen() {
   const { id } = useLocalSearchParams<{ id?: string | string[] }>();
+  const { member } = useGym();
   const exercise = findCatalogExercise(id, exercises);
   if (!exercise) {
     return <CatalogRouteError title="Ejercicio no encontrado" />;
@@ -29,6 +32,7 @@ export default function ExerciseScreen() {
           <Text style={styles.sets}>
             {exercise.series} × {exercise.repetitions} (series × repeticiones)
           </Text>
+          <InjuryWarning group={exercise.group} injuries={member.injuries} />
         </View>
         {imageSource !== undefined ? (
           <Image

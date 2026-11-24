@@ -36,7 +36,7 @@ Si falta Node 24, usa `nvm install`. Escanea el QR desde Expo Go en Android. Pul
 | RNF04 | Estructura del proyecto y pantallas de hasta 200 líneas | Cumplido |
 | RNF05 | Historial con al menos ocho commits descriptivos | Cumplido |
 | RNF06 | Cambios de pestaña en un segundo o menos en un teléfono de gama media | Parcial · Falta medir en un teléfono |
-| RF09 | Bonificación · Avisos por lesión | No |
+| RF09 | Bonificación · Avisos por lesión | Cumplido · Probado en web y confirmado por la estudiante en Expo Go |
 | RF10 | Bonificación · Temporizador de descanso | No |
 | RF11 | Bonificación · Persistencia al cerrar la app | No |
 

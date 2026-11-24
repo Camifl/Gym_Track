@@ -1,16 +1,18 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+import { InjuryWarning } from '@/components/InjuryWarning';
 import { colors } from '@/constants/colores';
 import { muscleGroupLabels } from '@/data/labels';
-import type { Exercise } from '@/types/gym';
+import type { Exercise, MuscleGroup } from '@/types/gym';
 
-export function CatalogExerciseLink({ exercise }: { exercise: Exercise }) {
+export function CatalogExerciseLink({ exercise, injuries }: { exercise: Exercise; injuries: readonly MuscleGroup[] }) {
   return (
     <Link href={{ pathname: '/ejercicio/[id]', params: { id: exercise.id } }} asChild>
       <Pressable style={styles.row}>
         <Text style={styles.name}>{exercise.name}</Text>
         <Text style={styles.group}>{muscleGroupLabels[exercise.group]}</Text>
+        <InjuryWarning group={exercise.group} injuries={injuries} />
       </Pressable>
     </Link>
   );

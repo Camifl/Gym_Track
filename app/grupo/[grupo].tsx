@@ -5,12 +5,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '@/constants/colores';
 import { CatalogExerciseLink } from '@/components/CatalogExerciseLink';
 import { CatalogRouteError } from '@/components/CatalogRouteError';
+import { useGym } from '@/context/GymContext';
 import { exercises } from '@/data/ejercicios';
 import { muscleGroupLabels, muscleGroups } from '@/data/labels';
 import { getCatalogGroup } from '@/utils/catalog';
 
 export default function GroupScreen() {
   const { grupo } = useLocalSearchParams<{ grupo?: string | string[] }>();
+  const { member } = useGym();
   const result = getCatalogGroup(grupo, muscleGroups, exercises);
 
   if (!result) {
@@ -22,7 +24,7 @@ export default function GroupScreen() {
       <Stack.Screen options={{ title: muscleGroupLabels[result.group] }} />
       <ScrollView contentContainerStyle={styles.list}>
         {result.exercises.length > 0 ? result.exercises.map((exercise) => (
-          <CatalogExerciseLink key={exercise.id} exercise={exercise} />
+          <CatalogExerciseLink key={exercise.id} exercise={exercise} injuries={member.injuries} />
         )) : (
           <Text style={styles.message}>No hay ejercicios en este grupo.</Text>
         )}

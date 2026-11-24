@@ -154,6 +154,14 @@ Para los demás ejercicios se usó el siguiente texto, seguido de la descripció
 
 **Resultado.** La estudiante confirmó el nombre, el teléfono Android y Google Drive. Al ejecutar el plan, Codex ajustó el diseño, comprobó la versión web y preparó el README y el guion. La grabación en Android queda pendiente.
 
+## 24 de noviembre de 2026 — RF09 · Advertencias por lesión
+
+**Herramienta:** Codex de OpenAI.
+
+> Crea un plan para desarrollar el primer punto RF09 de bonificacion, sigue la guia, las instrucciones, la investigacion realizada y las buenas practicas de desarrollo de software, hazme las preguntas que necesites e investiga lo que consideres necesario, no cometas errores, haz las validaciones y pruebas necesarias para entregar el trabajo de la mejor manera.
+
+**Resultado.** La estudiante pidió ejecutar el plan. Codex añadió las casillas de Perfil, los avisos y cinco pruebas automatizadas nuevas. Verificó en web que los avisos cambian únicamente al guardar un perfil válido. La estudiante informó que las pruebas solicitadas en Expo Go pasaron satisfactoriamente.
+
 ## Próximos registros
 
 Agregar una entrada solo si el prompt produjo una decisión o cambio relevante. Incluir fecha y etapa, el prompt, la herramienta/modelo y un resultado breve. No copiar consultas sencillas ni preguntas de aprendizaje.

@@ -5,12 +5,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { colors } from '@/constants/colores';
 import { CatalogExerciseLink } from '@/components/CatalogExerciseLink';
+import { useGym } from '@/context/GymContext';
 import { exercises } from '@/data/ejercicios';
 import { muscleGroupLabels, muscleGroups } from '@/data/labels';
 import { filterExercisesByName } from '@/utils/texto';
 
 export default function CatalogScreen() {
   const { width } = useWindowDimensions();
+  const { member } = useGym();
   const [query, setQuery] = useState('');
   const isSearching = query.trim().length > 0;
   const matches = isSearching ? filterExercisesByName(exercises, query) : [];
@@ -37,7 +39,7 @@ export default function CatalogScreen() {
         {isSearching ? (
           <View style={styles.results}>
             {matches.length > 0 ? matches.map((exercise) => (
-              <CatalogExerciseLink key={exercise.id} exercise={exercise} />
+              <CatalogExerciseLink key={exercise.id} exercise={exercise} injuries={member.injuries} />
             )) : (
               <Text style={styles.message} accessibilityLiveRegion="polite">No se encontraron ejercicios.</Text>
             )}

@@ -13,7 +13,7 @@ import { findPlannedDay, getSessionProgress, groupDayExercises } from '@/utils/t
 
 export default function DayScreen() {
   const { dia: day } = useLocalSearchParams<{ dia?: string | string[] }>();
-  const { completed, toggleExercise } = useGym();
+  const { member, completed, toggleExercise } = useGym();
   const selectedDay = findPlannedDay(day, plan);
 
   if (!selectedDay) {
@@ -55,6 +55,7 @@ export default function DayScreen() {
               <ExerciseItem
                 key={exercise.id}
                 exercise={exercise}
+                injuries={member.injuries}
                 completed={dayCompleted.includes(exercise.id)}
                 onToggle={() => toggleExercise(selectedDay.day, exercise.id)}
                 onViewDetails={() => router.push({

@@ -12,7 +12,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Completada según la revisión de la estudiante |
 | 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Completada según la revisión de la estudiante |
 | 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Ajustes y guía listos. Pendiente de grabación y cierre |
-| 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | Pendiente |
+| 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | En curso. RF09 completado; RF10 y RF11 pendientes |
 
 En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos una explicación o un pequeño cambio. Las bonificaciones van después de los requisitos obligatorios.
 
@@ -83,6 +83,12 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Revisión en Android.** La estudiante indicó que la orientación horizontal se ve bien. En Perfil no pudo desplazarse hasta Guardar con el teclado abierto; al cerrarlo sí pudo guardar. La IA ajustó el área desplazable, la barra de pestañas y la edición a pantalla completa de Android. La estudiante repitió la prueba e informó que funcionó.
 - **Encabezado de Inicio.** A petición de la estudiante, la IA cambió el título superior a «Gym Track», centrado y destacado. La pestaña conserva el nombre «Inicio».
 - **Confirmación posterior.** La estudiante confirmó que la app funciona en Expo Go con SDK 57 y que el teclado y la orientación horizontal funcionan en Perfil y Medidas.
+
+### 24 de noviembre de 2026 — RF09 · Advertencias por lesión
+
+- **Qué hizo la IA.** Añadió 11 casillas en Perfil y conectó las lesiones guardadas con los avisos de la sesión diaria, la lista por grupo, la búsqueda y la ficha.
+- **Qué se comprobó.** Pasaron 33 pruebas, TypeScript y lint. Expo exportó para Android, iOS y web. En el navegador se comprobó la selección con teclado, el tamaño de las casillas, los avisos iniciales y su actualización después de guardar. Un perfil inválido conservó los avisos previos y el borrador. Quitar todas las lesiones retiró los avisos y el progreso del lunes se mantuvo en 43 %.
+- **Revisión de la estudiante.** Informó que las pruebas solicitadas en Expo Go pasaron satisfactoriamente. El recorrido para la sustentación está en la [hoja de verificación](docs/VERIFICACION.md#demostración-de-rf09).
 
 ### Para cada avance
 

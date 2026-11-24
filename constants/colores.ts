@@ -11,4 +11,6 @@ export const colors = {
   primary: '#184C62',
   error: '#A42121',
   success: '#176144',
+  warningText: '#7A3E00',
+  warningSurface: '#FFF4DE',
 } as const;

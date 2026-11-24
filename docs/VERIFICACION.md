@@ -25,6 +25,15 @@ Para una pasada de prueba, intenta guardar esos datos con `2026-11` y confirma q
 
 Al terminar, pasa el archivo original para editar el video y extraer las cuatro capturas. El MP4 final debe durar **menos de 5 minutos** y cubrir RF01–RF08. [Grabación de pantalla en Android](https://support.google.com/android/answer/9075928?hl=es)
 
+## Demostración de RF09
+
+1. Abre **Perfil → Lesiones por grupo muscular**. Con los datos de ejemplo, **Pierna** y **Lumbar** están marcados. En **Inicio → Lunes**, **Media prensa 45°** muestra un aviso y **Press banca plano** aparece sin aviso.
+2. En **Catálogo → Pierna**, comprueba los avisos de la lista. Busca `extension` y abre **Hiperextensiones**. El aviso de Lumbar se ve tanto en el resultado como en la ficha.
+3. En Perfil, desmarca **Pierna**, marca **Pecho** y pon `13` en Edad. Intenta guardar. Comprueba que aparece el error y que los avisos del lunes siguen reflejando el perfil guardado. Regresa a Perfil, corrige la edad a `42` y guarda. En Lunes el aviso pasa de **Media prensa 45°** a **Press banca plano**. El aviso de Lumbar sigue visible.
+4. Desmarca todos los grupos y guarda. Los avisos desaparecen y puedes seguir marcando ejercicios y abriendo sus fichas. En Android, repite el guardado de Perfil con el teclado abierto en vertical y horizontal.
+
+Para la sustentación, explica cómo se lee el grupo de cada ejercicio y por qué los avisos cambian solo después de guardar un perfil válido.
+
 ## Lista de entrega
 
 - [ ] Revisar la app en Android y registrar el resultado en la bitácora.

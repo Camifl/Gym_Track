@@ -1,8 +1,9 @@
-import type { Member } from '@/types/gym';
+import type { Member, MuscleGroup } from '@/types/gym';
 
-type ProfileValues = Pick<Member, 'name' | 'age' | 'goal' | 'notes'>;
-export type ProfileDraft = Record<keyof ProfileValues, string>;
-export type ProfileErrors = Partial<Record<keyof ProfileDraft, string>>;
+export type ProfileTextField = 'name' | 'age' | 'goal' | 'notes';
+type ProfileValues = Pick<Member, ProfileTextField | 'injuries'>;
+export type ProfileDraft = Record<ProfileTextField, string> & { injuries: MuscleGroup[] };
+export type ProfileErrors = Partial<Record<ProfileTextField, string>>;
 
 export function validateProfile(draft: ProfileDraft):
   | { ok: true; value: ProfileValues }
@@ -27,6 +28,7 @@ export function validateProfile(draft: ProfileDraft):
       age,
       goal: draft.goal.trim(),
       notes: draft.notes.split(/\r?\n/).map(note => note.trim()).filter(Boolean),
+      injuries: [...new Set(draft.injuries)],
     },
   };
 }
