@@ -1,6 +1,8 @@
 export function calculateBmi(weightKg: number, heightM: number): number {
   // El peso se expresa en kilogramos y la estatura en metros.
-  return weightKg / (heightM * heightM);
+  const bmi = weightKg / (heightM * heightM);
+  // Quitamos el ruido de coma flotante para clasificar bien valores en un umbral exacto.
+  return Number(bmi.toPrecision(15));
 }
 
 export function classifyBmi(bmi: number): string {

@@ -1,6 +1,6 @@
 # GymTrack
 
-Aplicación móvil de entrenamiento hecha con Expo Router y TypeScript. Permite consultar el plan semanal, marcar el progreso de una sesión y explorar el catálogo de ejercicios.
+Aplicación móvil de entrenamiento hecha con Expo Router y TypeScript. Permite consultar el plan semanal, marcar el progreso de una sesión, explorar el catálogo de ejercicios, editar el perfil y registrar medidas mensuales.
 
 ## Ejecutar la app
 
@@ -31,10 +31,21 @@ Para revisar el catálogo:
 
 Para comprobar el progreso, abre **Inicio → Lunes** y marca tres ejercicios. Debe mostrar **3 de 7 completados · 43 %**.
 
+### Perfil y medidas en Expo Go
+
+1. En **Perfil**, borra el nombre, escribe `13` en la edad y pulsa **Guardar perfil**. Deben aparecer dos errores bajo sus campos. Escribe un nombre y una edad válida. Guarda, confirma la alerta y vuelve desde otra pestaña para comprobar los cambios.
+2. En **Medidas**, con los datos iniciales, verifica **IMC 32,0**, **Obesidad grado I** y **−2,5 kg** frente a `2026-10`.
+3. Llena el formulario con mes `2026-11`, estatura `1,75` y peso `96,5`. Usa estos perímetros en orden: hombro `118`, brazo `33`, antebrazo `28`, pecho `108`, abdomen `101`, cadera `106`, pierna `58` y pantorrilla `38`. Pulsa **Guardar medidas** con el teclado abierto. Debe aparecer el error de mes duplicado y conservarse los valores.
+4. Cambia solo el mes a `2026-12` y guarda. El formulario debe quedar vacío y diciembre aparecer primero en el historial, con **IMC 31,5** y **−1,5 kg** frente a noviembre en el resumen. Cambia de pestaña y vuelve para comprobar que el registro sigue ahí.
+5. Para verificar un salto, registra `2027-02` con los mismos valores sin guardar enero. El resumen debe mostrar **Sin registro del mes anterior**.
+
+Los cambios de perfil y medidas se guardan en memoria durante el uso de la app. Al reiniciarla se cargan los datos iniciales.
+
 ## Bitácora de investigación
 
 | Tema | Fuentes | Qué aprendimos y dónde se aplicó |
 | --- | --- | --- |
+| T4 · Formularios controlados | [TextInput](https://reactnative.dev/docs/0.86/textinput), [manejo del teclado en Expo](https://docs.expo.dev/guides/keyboard-handling/), [Alert](https://reactnative.dev/docs/0.86/alert) | `value` y `onChangeText` sincronizan la entrada con un borrador local. Al guardar se valida el texto antes de llamar a `Number()` para que un campo vacío se distinga de cero. [FormField](components/FormField.tsx) muestra los errores bajo cada campo y [FormScreen](components/FormScreen.tsx) comparte el manejo del teclado. |
 | T6 · Arreglos y tipos | [Estrechamiento en TypeScript](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), [normalización de texto](https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.normalize) | La búsqueda normaliza la consulta y cada nombre antes de usar `includes` en [utils/texto.ts](utils/texto.ts). En [utils/catalog.ts](utils/catalog.ts) se valida el parámetro de ruta antes de buscar y se filtra el plan por el ID del ejercicio para obtener sus días. |
 | T7 · Imágenes locales | [Imágenes en React Native](https://reactnative.dev/docs/0.86/images) | Metro necesita conocer la ruta literal de un `require` para incluir el archivo local. [El mapa de imágenes](data/exerciseImages.ts) conecta los JPEG de [la carpeta de ejercicios](assets/images/ejercicios/) con el ID que recibe la ficha. |
 

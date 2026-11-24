@@ -138,6 +138,14 @@ Para los demás ejercicios se usó el siguiente texto, seguido de la descripció
 
 </details>
 
+## 24 de noviembre de 2026 — Perfil y medidas
+
+**Herramienta:** Codex de OpenAI. **Modelo de implementación:** GPT-6.2 Sol.
+
+> Crea un plan para el desarrollo de la etapa 5, usa la guia del laboratorio, sigue las instrucciones y no cometas errores, yo actuare como supervisora de tu trabajo, hazme las preguntas que sean necesarias e investiga lo que haga falta, valida que todo funcione antes de entregarlo y actualiza la documentacion donde sea necesario, agrega comentarios en español donde sea importante entender el funcionamiento de tus cambios. Explica que cambiaste y porque, ademas de como puedo probar yo los cambios.
+
+**Resultado.** La estudiante eligió comparar con el mes calendario anterior y pidió ejecutar el plan aprobado. Codex implementó Perfil y Medidas, añadió 13 pruebas y verificó el recorrido en el navegador. La guía de prueba y la investigación T4 quedaron en el README.
+
 ## Próximos registros
 
 Agregar una entrada solo si el prompt produjo una decisión o cambio relevante. Incluir fecha y etapa, el prompt, la herramienta/modelo y un resultado breve. No copiar consultas sencillas ni preguntas de aprendizaje.

@@ -1,13 +1,14 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
-import type { Member, Measurement, Weekday } from '@/types/gym';
+import { createContext, useContext, useState, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 import { initialMember } from '@/data/socio';
+import type { Member, Measurement, Weekday } from '@/types/gym';
+import { hasMeasurementForMonth } from '@/utils/measurements';
 
 type CompletedExercises = Record<Weekday, string[]>;
 
 interface GymState {
   member: Member;
-  setMember: (member: Member) => void;
-  measurements: Measurement[];
+  setMember: Dispatch<SetStateAction<Member>>;
+  measurements: readonly Measurement[];
   addMeasurement: (measurement: Measurement) => void;
   completed: CompletedExercises;
   toggleExercise: (day: Weekday, id: string) => void;
@@ -22,12 +23,13 @@ const GymContext = createContext<GymState | null>(null);
 
 export function GymProvider({ children }: { children: ReactNode }) {
   const [member, setMember] = useState<Member>(initialMember);
-  const [measurements, setMeasurements] = useState<Measurement[]>(initialMember.measurements);
   const [completed, setCompleted] = useState<CompletedExercises>(emptyCompleted);
 
-  // Conservamos el historial anterior y añadimos la nueva medida al principio.
+  // El perfil y las medidas comparten un solo estado. Un doble toque no duplica el mes.
   const addMeasurement = (measurement: Measurement) =>
-    setMeasurements(previous => [measurement, ...previous]);
+    setMember(previous => hasMeasurementForMonth(previous.measurements, measurement.month)
+      ? previous
+      : { ...previous, measurements: [measurement, ...previous.measurements] });
   // Si el ejercicio ya está marcado, se elimina; si no, se añade.
   const toggleExercise = (day: Weekday, id: string) =>
     setCompleted(previous => ({
@@ -39,7 +41,7 @@ export function GymProvider({ children }: { children: ReactNode }) {
 
   return (
     <GymContext.Provider
-      value={{ member, setMember, measurements, addMeasurement, completed, toggleExercise }}>
+      value={{ member, setMember, measurements: member.measurements, addMeasurement, completed, toggleExercise }}>
       {children}
     </GymContext.Provider>
   );

@@ -10,7 +10,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | 2. Navegación | Crear las cuatro pestañas y las pantallas de detalle. | Explicar cómo se conectan las pantallas y practicar la navegación. | Completada |
 | 3. Plan y sesión | Mostrar la rutina semanal y marcar ejercicios realizados. | Explicar cómo se muestran los datos y se calcula el progreso. | Completada |
 | 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Completada según la revisión de la estudiante |
-| 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Pendiente |
+| 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Completada según la revisión de la estudiante |
 | 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Pendiente |
 | 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | Pendiente |
 
@@ -65,6 +65,14 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Para sustentar:** explicar por qué `extension` coincide con Hiperextensiones y cómo se buscan los días por ID. El README contiene el recorrido de prueba y las fuentes de T6 y T7.
 - **Revisión de la estudiante:** informó que realizó la revisión y que todo pasó correctamente.
 - **Ilustraciones:** la IA generó 37 JPEG y los conectó por ID. Se comprobaron las 37 imágenes en el navegador abriendo cada ficha desde su grupo. Pasaron las 15 pruebas, TypeScript y lint. Expo exportó iOS, Android y web con las imágenes incluidas.
+
+### 24 de noviembre de 2026 — Perfil y medidas
+
+- **Qué hizo la IA.** Implementó RF07 y RF08 con formularios controlados, errores por campo e historial en `GymContext`. La estudiante eligió comparar el peso con el mes calendario anterior.
+- **Qué se comprobó.** Pasaron 28 pruebas en Node 24, TypeScript y lint. Expo exportó iOS, Android y web. En el navegador se comprobaron los errores y el guardado en ambas pestañas, el historial ordenado, el mes duplicado, un salto de mes y los resultados de noviembre (**32,0 y −2,5 kg**) y diciembre (**31,5 y −1,5 kg**).
+- **Ajuste de cálculo.** Se corrigieron dos casos de precisión y se añadieron pruebas. Con 64 kg y 1,60 m se muestra **IMC 25,0 · Sobrepeso**. Un aumento de 0,05 kg se muestra como **+0,1 kg** al presentar un decimal.
+- **Para sustentar.** Explicar por qué se valida el texto antes de aplicar `Number()` y por qué se busca el mes calendario anterior en vez de usar la segunda fila del historial.
+- **Revisión de la estudiante.** Informó que realizó las pruebas solicitadas y pasaron satisfactoriamente. La IA volvió a ejecutar las 28 pruebas, TypeScript y lint sin errores.
 
 ### Para cada avance
 
