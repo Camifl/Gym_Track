@@ -1,12 +1,13 @@
-export function calcularImc(pesoKg: number, estaturaM: number): number {
-  return pesoKg / (estaturaM * estaturaM);
+export function calculateBmi(weightKg: number, heightM: number): number {
+  // El peso se expresa en kilogramos y la estatura en metros.
+  return weightKg / (heightM * heightM);
 }
 
-export function clasificarImc(imc: number): string {
-  if (imc < 18.5) return 'Bajo peso';
-  if (imc < 25) return 'Normal';
-  if (imc < 30) return 'Sobrepeso';
-  if (imc < 35) return 'Obesidad grado I';
-  if (imc < 40) return 'Obesidad grado II';
+export function classifyBmi(bmi: number): string {
+  if (bmi < 18.5) return 'Bajo peso';
+  if (bmi < 25) return 'Normal';
+  if (bmi < 30) return 'Sobrepeso';
+  if (bmi < 35) return 'Obesidad grado I';
+  if (bmi < 40) return 'Obesidad grado II';
   return 'Obesidad grado III';
 }

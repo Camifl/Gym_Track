@@ -1,41 +1,41 @@
-export type DiaSemana =
+export type Weekday =
   | 'lunes' | 'martes' | 'miercoles' | 'jueves' | 'viernes' | 'sabado';
 
-export type GrupoMuscular =
+export type MuscleGroup =
   | 'pierna' | 'pecho' | 'triceps' | 'espalda' | 'hombro' | 'biceps'
   | 'abdomen' | 'cadera' | 'gluteo' | 'lumbar' | 'antebrazo';
 
-export interface Ejercicio {
+export interface Exercise {
   id: string;
-  nombre: string;
-  grupo: GrupoMuscular;
+  name: string;
+  group: MuscleGroup;
   series: number;
-  repeticiones: number;
-  imagen?: number;
+  repetitions: number;
+  image?: number;
 }
 
-export interface DiaPlan {
-  dia: DiaSemana;
-  enfoque: string;
+export interface DayPlan {
+  day: Weekday;
+  focus: string;
   color: string;
-  ejercicios: string[];
+  exercises: string[];
   cardioMin?: number;
 }
 
-export interface Medida {
-  mes: string;
-  estaturaM: number;
-  pesoKg: number;
-  perimetrosCm: Record<'hombro' | 'brazo' | 'antebrazo' | 'pecho' | 'abdomen'
-    | 'cadera' | 'pierna' | 'pantorrilla', number>;
+export interface Measurement {
+  month: string;
+  heightM: number;
+  weightKg: number;
+  circumferencesCm: Record<'shoulder' | 'arm' | 'forearm' | 'chest' | 'abdomen'
+    | 'hip' | 'leg' | 'calf', number>;
 }
 
-export interface Socio {
-  nombre: string;
-  edad: number;
-  fechaAsignacion: string;
-  objetivo: string;
-  observaciones: string[];
-  lesiones: GrupoMuscular[];
-  medidas: Medida[];
+export interface Member {
+  name: string;
+  age: number;
+  assignmentDate: string;
+  goal: string;
+  notes: string[];
+  injuries: MuscleGroup[];
+  measurements: Measurement[];
 }
