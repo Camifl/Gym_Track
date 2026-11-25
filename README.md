@@ -37,7 +37,7 @@ Si falta Node 24, usa `nvm install`. Escanea el QR desde Expo Go en Android. Pul
 | RNF05 | Historial con al menos ocho commits descriptivos | Cumplido |
 | RNF06 | Cambios de pestaña en un segundo o menos en un teléfono de gama media | Parcial · Falta medir en un teléfono |
 | RF09 | Bonificación · Avisos por lesión | Cumplido · Probado en web y confirmado por la estudiante en Expo Go |
-| RF10 | Bonificación · Temporizador de descanso | No |
+| RF10 | Bonificación · Temporizador de descanso | Implementado · Pruebas en web y Expo Go en un emulador Android |
 | RF11 | Bonificación · Persistencia al cerrar la app | No |
 
 El perfil, el historial y el progreso se guardan en memoria durante el uso de la app.
@@ -54,7 +54,7 @@ Consulta los ejemplos de prueba, el guion del video y la lista de entrega en la 
 | --- | --- | --- |
 | T1 · Context | [React: useContext](https://react.dev/reference/react/useContext) | El [proveedor](context/GymContext.tsx) comparte el perfil, las medidas y el progreso. `useGym` comprueba que tiene un proveedor para detectar usos fuera de él. |
 | T2 · Pestañas y rutas | [Expo Router](https://docs.expo.dev/versions/v57.0.0/sdk/router/) | El [layout de pestañas](app/%28tabs%29/_layout.tsx) organiza las cuatro secciones. En el [detalle de día](app/dia/%5Bdia%5D.tsx), `useLocalSearchParams` lee el parámetro que luego se valida contra el plan. |
-| T3 · Efectos y limpieza | [React: useEffect](https://react.dev/reference/react/useEffect) | La limpieza de un efecto cancela recursos como un intervalo al salir. [Inicio](app/%28tabs%29/index.tsx) actualiza el día al volver a la pestaña con `useFocusEffect`. La limpieza de intervalos se investigó para la bonificación del temporizador. |
+| T3 · Efectos y limpieza | [React · useEffect](https://react.dev/reference/react/useEffect) | El [temporizador](components/RestTimer.tsx) crea un intervalo mientras corre en primer plano. El efecto depende de la hora de finalización y de la visibilidad. Su limpieza llama a `clearInterval` cuando cambian esas dependencias o se desmonta el componente. Al perder el foco de la sesión, `useFocusEffect` reinicia el descanso. |
 | T4 · Formularios | [React Native: TextInput](https://reactnative.dev/docs/0.86/textinput) | [FormField](components/FormField.tsx) muestra el error de cada entrada. En [Perfil](utils/profile.ts) se valida el texto antes de convertirlo porque `Number('')` devuelve cero. |
 | T5 · Diseño adaptable | [React Native: useWindowDimensions](https://reactnative.dev/docs/0.86/usewindowdimensions) | El [catálogo](app/%28tabs%29/catalogo.tsx) reorganiza sus tarjetas con `flexWrap` al cambiar el ancho. Usa tres columnas por encima de 600 puntos. |
 | T6 · Arreglos y tipos | [TypeScript: estrechamiento de tipos](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) | [Catálogo](utils/catalog.ts) filtra el plan por ID para encontrar los días asignados. La [búsqueda](utils/texto.ts) normaliza el texto antes de comparar los nombres. |

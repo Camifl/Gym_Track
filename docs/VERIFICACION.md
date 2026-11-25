@@ -34,6 +34,15 @@ Al terminar, pasa el archivo original para editar el video y extraer las cuatro 
 
 Para la sustentación, explica cómo se lee el grupo de cada ejercicio y por qué los avisos cambian solo después de guardar un perfil válido.
 
+## Demostración de RF10
+
+1. Abre **Inicio → Lunes**. Bajo el progreso, comprueba que **Descanso entre series** empieza en **01:00**. Pulsa **Iniciar** y espera a **00:00** y **Descanso terminado**. Vuelve a pulsar **Iniciar** para comenzar otro descanso.
+2. Pulsa **Pausar**, espera unos segundos y comprueba que el número se conserva. Pulsa **Continuar**, comprueba que vuelve a bajar y usa **Reiniciar** para detenerlo y volver a **01:00**.
+3. Inicia la cuenta, abre una ficha y regresa. Debe mostrar **01:00**. Repite saliendo a Inicio y vuelve a abrir Lunes. Marca un ejercicio para comprobar que el progreso sigue actualizándose.
+4. Minimiza la app durante al menos cinco segundos con la cuenta en marcha. Al volver, debe haber descontado ese tiempo. Repite con la cuenta pausada y comprueba que conserva el valor. Gira el teléfono y prueba los controles en horizontal.
+
+Para la sustentación, explica cómo la hora de finalización evita acumular retrasos y cuándo se ejecuta `clearInterval`. Muestra el reinicio al abrir una ficha aunque la sesión siga montada.
+
 ## Lista de entrega
 
 - [ ] Revisar la app en Android y registrar el resultado en la bitácora.

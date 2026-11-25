@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '@/constants/colores';
 import { ExerciseItem } from '@/components/ExerciseItem';
 import { ProgressBar } from '@/components/ProgressBar';
+import { RestTimer } from '@/components/RestTimer';
 import { useGym } from '@/context/GymContext';
 import { exercises } from '@/data/ejercicios';
 import { muscleGroupLabels, weekdayLabels } from '@/data/labels';
@@ -43,6 +44,7 @@ export default function DayScreen() {
       <ScrollView contentContainerStyle={styles.content}>
         <Text accessibilityRole="header" style={styles.heading}>{selectedDay.focus}</Text>
         <ProgressBar value={progress.value} total={progress.total} />
+        <RestTimer key={selectedDay.day} />
         <View style={styles.section}>
           <Text accessibilityRole="header" style={styles.sectionTitle}>Calentamiento inicial · 5 min</Text>
           <Text style={styles.text}>Trote, bicicleta o elíptica</Text>

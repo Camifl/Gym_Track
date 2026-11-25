@@ -12,7 +12,7 @@ Esta bitácora nos ayuda a seguir el avance y a preparar la sustentación. La ac
 | 4. Catálogo | Mostrar los grupos musculares, buscar y consultar ejercicios. | Explicar la búsqueda, los filtros y los detalles. | Completada según la revisión de la estudiante |
 | 5. Perfil y medidas | Crear los formularios, validaciones y cálculo del IMC. | Explicar cómo se guardan y comprueban los datos. | Completada según la revisión de la estudiante |
 | 6. Revisión y entrega | Probar la app, completar el README, preparar el video y practicar la sustentación. | Revisar los resultados y hacer preguntas de práctica. | Ajustes y guía listos. Pendiente de grabación y cierre |
-| 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | En curso. RF09 completado; RF10 y RF11 pendientes |
+| 7. Bonificaciones | Añadir mejoras opcionales si queda tiempo. | Explicar y ayudar a probar cada mejora. | En curso. RF09 completado, RF10 implementado y RF11 pendiente |
 
 En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos una explicación o un pequeño cambio. Las bonificaciones van después de los requisitos obligatorios.
 
@@ -89,6 +89,12 @@ En cada etapa revisaremos el código, probaremos lo que funcione y practicaremos
 - **Qué hizo la IA.** Añadió 11 casillas en Perfil y conectó las lesiones guardadas con los avisos de la sesión diaria, la lista por grupo, la búsqueda y la ficha.
 - **Qué se comprobó.** Pasaron 33 pruebas, TypeScript y lint. Expo exportó para Android, iOS y web. En el navegador se comprobó la selección con teclado, el tamaño de las casillas, los avisos iniciales y su actualización después de guardar. Un perfil inválido conservó los avisos previos y el borrador. Quitar todas las lesiones retiró los avisos y el progreso del lunes se mantuvo en 43 %.
 - **Revisión de la estudiante.** Informó que las pruebas solicitadas en Expo Go pasaron satisfactoriamente. El recorrido para la sustentación está en la [hoja de verificación](docs/VERIFICACION.md#demostración-de-rf09).
+
+### 24 de noviembre de 2026 — RF10 · Temporizador de descanso
+
+- **Qué hizo la IA.** Añadió un descanso de 60 segundos en la sesión diaria, con pausa, continuación y reinicio. La cuenta se actualiza según la hora prevista de finalización y se reinicia al abrir una ficha o salir a Inicio.
+- **Qué se comprobó.** Pasaron 38 pruebas, TypeScript y lint. Expo exportó para Android, iOS y web. En Chromium se comprobó la cuenta real hasta cero, la limpieza del intervalo, la navegación, los controles en dos orientaciones y el regreso a primer plano con visibilidad simulada. En Expo Go SDK 57, un emulador Android confirmó pausa, continuación, reinicio por navegación, fin en **00:00**, rotación y regreso desde segundo plano con la cuenta en marcha y pausada.
+- **Revisión de la estudiante.** Pendiente. El recorrido está en la [hoja de verificación](docs/VERIFICACION.md#demostración-de-rf10).
 
 ### Para cada avance
 
